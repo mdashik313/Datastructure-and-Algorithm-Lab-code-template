@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
-
+test.cpp
+in.txt
+out.txt
+test
 # Compiled Object files
 *.slo
 *.lo
