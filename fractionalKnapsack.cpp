@@ -14,14 +14,19 @@ void printV(vector<pair<int,int>> &v, int n){
 
 void fractionalKnapsack(vector<pair<int,int>> &v, int n, int w){
     sort(v.begin(),v.end(),cmp);
-    printV(v,n);
 
-
-    int profit=0, knap_left=w;
+    int profit=0, k_left=w;
     int itr = 0;
-    while(itr < n && knap_left>0){
-        profit += v[itr].second;
-        knap_left -= v[itr].first;
+    while(itr < n && k_left>0){
+        if(k_left >= v[itr].first){
+            profit += v[itr].second;
+            k_left -= v[itr].first;
+        }
+        else {
+            profit += k_left * ((double)v[itr].second/v[itr].first);
+            k_left = 0;
+        }
+        
         itr++;
     }
 
